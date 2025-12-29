@@ -6,7 +6,8 @@ C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS
 Code, Compile, Run and Debug online from anywhere in world.
 
 '''
- class Solution:
+#leetcode 258 problem 
+class Solution:
     def addDigits(self, num: int) -> int:
         while num>=10:
             sumi=0
