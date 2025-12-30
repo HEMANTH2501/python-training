@@ -1,26 +1,27 @@
-#LEETCODE PROBLEM 229
-class Solution:
-    def majorityElement(self, nums: List[int]) -> List[int]:
-        c1=0
-        c2=0
-        num1=num2=None
-        for num in nums:
-            if num==num1:
-                c1+=1
-            elif num==num2:
-                c2+=1
-            elif c1==0:
-                num1=num
-                c1=1
-            elif c2==0:
-                num2=num
-                c2=1
-            else:
-                c1-=1
-                c2-=1
-        k=[]
-        if nums.count(num1)>len(nums)//3:
-            k.append(num1)
-        if nums.count(num2)>len(nums)//3:
-             k.append(num2)
-        return k
+'''
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+'''
+def partition(arr,low,high):
+    pivot=arr[high]
+    i=low-1
+    for j in range(low,high):
+        if arr[j]<pivot:
+            i+=1
+            arr[i],arr[j]=arr[j],arr[i]
+    arr[i+1],arr[high]=arr[high],arr[i+1]
+    return i+1
+def quicksort(arr,low,high):
+    if low<high:
+        k=partition(arr,low,high)
+        quicksort(arr,low,k-1)
+        quicksort(arr,k+1,high)
+arr=list(map(int,input().split()))
+n=len(arr)
+print("Original array:",arr)
+quicksort(arr,0,n-1)
+print("Sorted array:",arr)
